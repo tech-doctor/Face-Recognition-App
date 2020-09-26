@@ -1,0 +1,21 @@
+.nav{
+    background-color: rgb(192, 89, 63);
+    padding: 8px;
+    color: white;
+    margin-right: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.login-style{
+    margin-right: 20px;
+}
+
+.log-out{
+    background-color: rgb(58, 58, 58);
+    padding: 8px;
+    color: white;
+    margin-right: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
