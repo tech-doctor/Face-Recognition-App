@@ -9,6 +9,7 @@ import FaceRecognition from './COMPONENTS/FaceRecognition/FaceRecognition'
 import  Clarifai from 'clarifai'
 import './App.css'
 
+
 // code from the API documentation
 const app = new Clarifai.App({
   apiKey: '4373be249351438c849dbf0e40f63f3a'
@@ -16,33 +17,40 @@ const app = new Clarifai.App({
 
 class App extends Component {
   constructor(){
-    super()
+    super();
     this.state = {
       input: '',
       imageUrl: '',
       route: 'home',
-      box: {},
+      box: [],
       isLoggedIn: !false
     }  
   }
 
-  calculateFaceLocation = (data) => {
-    console.log(data)
-   const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-   const image = document.getElementById('inputimage'); 
-   const width = Number(image.width);
-   const height = Number(image.height)
-   return{
+
+
+
+
+  calculateFaceLocation = (data, i) => {
+    const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
+    const image  = document.getElementById('inputimage'); 
+    const width  = Number(image.width);
+    const height = Number(image.height);
+    return{
       leftCol:clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
       rightCol: width - (clarifaiFace.right_col * width),    
       bottomRow: height - (clarifaiFace.bottom_row * height)
-   } 
+    }
   }
+  
+
 
   displayFaceBox = (box) => {
-    console.log(box)
-    this.setState({box: box})
+    //console.log(box)
+    this.setState({
+      box: [...this.state.box, box]
+    });
   }
 
   onInputChange = (event) => {
@@ -52,14 +60,18 @@ class App extends Component {
   
 
   onButtonSubmit = () => {
-    this.setState({imageUrl: this.state.input})
+    this.setState({ imageUrl: this.state.input});
     //NOTE: here is the code from the Clarifai API documentation
     app.models.predict( Clarifai.FACE_DETECT_MODEL, this.state.input)
-
-    .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
-
+    .then(response => {
+      for(let i = 0; i < response.outputs[0].data.regions.length; i++){
+        this.displayFaceBox(this.calculateFaceLocation(response, i))
+      }
+    })
       .catch(err => console.log(err));
   }
+
+
 
   onRouteChange =(route) => {
    if (route === 'logout')  {
@@ -70,7 +82,6 @@ class App extends Component {
    } 
     this.setState({route: route})
   }
-
 
   render(){
     const {isLoggedIn, route} = this.state
