@@ -1,35 +1,34 @@
 import React from 'react'
-import './Login.css'
+import '../../Styles/Login.css'
 
 const LogIn = ({onRouteChange}) => {
   return (
     <div>
-      <article className = 'br3  b--10 mv4 w-100 w-70-m w-70-l mw6 shadow-2-ns  center'>
-        <main className = " pa4 black-80">
-          <div className = 'measure'>
-            <legend className = "center  ma4 f3">Log In</legend> 
-            <div className ="  ma4">
-              <label className = 'center'>Email</label>
-              <input className = 'w5' required type ="email" name = "email"/>
+      <article className = 'login_article'>
+        <main className = " main">
+          <form className = 'form_segment'>
+            <legend className = "form_title">Log In</legend> 
+            <div className = "email_div">
+              <label>Email</label>
+              <input required type ="email" name = "email"/>
             </div>
-            <div className ="ma4">
-              <label className = 'center'>Password</label>
-              <input className = "w5" required type ="password" name = "password"/>
+            <div className ="password_div">
+              <label>Password</label>
+              <input required type ="password" name = "password"/>
             </div>
-             <div className = "">
+             <div className = "submit_div">
               <input 
               onClick = {()=>onRouteChange ('home')}
-              className ="center bg-green white bn br3 pa2 w-30" 
+              className ="submit_button" 
               type ="submit"
-                value = "Log In"
+              value = "Log In"
               />
               </div>
-              <div className = " 1h-copy mt3">
+              <div className = "redirect_to_signup">
               <small 
-              onClick ={()=>onRouteChange('signup')}
-               className = "center f6 dim link black  pointer br3 ">Sign up</small>
+              onClick ={()=>onRouteChange('signup')}>Sign up</small>
               </div>
-          </div>
+          </form>
         </main>
       </article>
     </div>

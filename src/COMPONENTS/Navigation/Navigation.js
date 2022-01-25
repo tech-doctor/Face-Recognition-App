@@ -1,20 +1,19 @@
 import React from 'react'
-import './Navigation.css'
- const Navigation = ({onRouteChange, isLoggedIn}) => {
+import '../../Styles/Navigation.css'
+
+  const Navigation = ({onRouteChange, isLoggedIn}) => {
     return (
-        <div>
-        {isLoggedIn ?
-         <nav style= {{display: 'flex', justifyContent : 'flex-end'}}>
-            <p onClick = {()=>onRouteChange ('logout')} className = " f5 link dim white pointer log-out">Log Out</p>
-        </nav> : 
+      <div>
+      {isLoggedIn ?
         <nav style= {{display: 'flex', justifyContent : 'flex-end'}}>
-            <p  onClick = {()=>onRouteChange ('login')}  className = " f5 link dim white  pointer nav login-style">Log in</p>
-            <p onClick = {()=>onRouteChange ('signup')} className = " f5 link dim white pointer nav ">Sign Up</p>
-        </nav>
-        }
-        
-           
+        <p onClick = {()=>onRouteChange ('logout')} className = "logout_link text-5xl font-bold underline">Log Out</p>
+      </nav> : 
+      <nav style= {{display: 'flex', justifyContent : 'flex-end'}}>
+        <p onClick = {()=>onRouteChange ('login')}  className = "login_link ">Log in</p>
+        <p onClick = {()=>onRouteChange ('signup')} className = " signup_link ">Sign Up</p>
+      </nav>
+      }     
     </div>
-    ) 
+  ) 
  }
 export default Navigation
