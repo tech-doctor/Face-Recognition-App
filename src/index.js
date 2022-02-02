@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-//import 'tachyons'
+//import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from "@chakra-ui/react"
 
-
-ReactDOM.render( <App />, document.getElementById('root')
+ReactDOM.render(
+    <ChakraProvider resetCSS = {false}>
+      <App />
+    </ChakraProvider>
+     , document.getElementById('root')
 );
-
 
