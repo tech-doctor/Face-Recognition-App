@@ -8,14 +8,16 @@ import '../../Styles/ImageLinkForm.css'
 				{'This Magic Brain will detect faces in you picture, give it a try'}
 			</p>
 			<div className= "center">
+      <form onSubmit={onButtonSubmit}>
 				<div className = ' center form'>
-				<input 
-					onChange = {onInputChange}
-				className = ' center' type = 'text'/>
-				<button 
-				onClick = {onButtonSubmit}
-				className = 'detect_button'>Detect</button>
+          <input 
+          onChange = {onInputChange}
+          className = ' center' type = 'text'/>
+          <button 
+          type='submit'
+          className = 'detect_button'>Detect</button>
 				</div>
+        </form>
 			</div>
 		</div>
 	) 

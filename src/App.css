@@ -1,17 +1,16 @@
 .center {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-body{
-    background-color: rgb(255, 255, 255);
-    
+body {
+  background-color: rgb(255, 255, 255);
 }
 
 .align {
-    text-align: center;
+  text-align: center;
 }
 
-.absolute{
-    position: absolute;
+.absolute {
+  position: absolute;
 }
