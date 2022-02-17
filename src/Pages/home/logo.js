@@ -7,7 +7,7 @@ import '../../Styles/Logo.css'
 const  Logo = () =>  {
   return (
     <div className = "tilt_div">
-      <Tilt className="Tilt" options={{ max : 55 }} style={{ height: 150, width: 150 }} >
+      <Tilt className="Tilt" options={{ max : 55 }} style={{ height: '100%', width: 120 }} >
         <div className="Tilt-inner"><img style= {{paddingTop: '5px'}}  alt = "logo" src='../Assets/brain.png'/></div>
       </Tilt>
     </div>

@@ -5,7 +5,7 @@ import '../../Styles/Navigation.css'
 const Navigation = ({isLoggedIn}) => {
   return (
       <div>
-      {isLoggedIn ?
+      {isLoggedIn?
       <nav>
          <p className = "logout_link">Log Out</p>   
       </nav>

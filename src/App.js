@@ -8,13 +8,15 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router>
+    <div className='app'>
+      <Router>
         <Switch>
-          <Route path='/' component={Home}/> 
+          <Route exact path='/' component = {Home}/> 
           <Route exact path='/login' component={LogIn}/>
-          <Route path='/signup' component={SignUp}/>  
+          <Route exact path='/signup' component={SignUp}/>  
         </Switch>
-    </Router>
+      </Router>
+    </div> 
   );
 }
 

@@ -1,12 +1,14 @@
+.app {
+  background-color: rgb(255, 255, 255);
+  /* background-color: grey; */
+  border: 1px solid black;
+  height: 100vh;
+  /* margin: 20px 10px; */
+}
 .center {
   display: flex;
   justify-content: center;
 }
-
-body {
-  background-color: rgb(255, 255, 255);
-}
-
 .align {
   text-align: center;
 }

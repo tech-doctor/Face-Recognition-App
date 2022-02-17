@@ -16,7 +16,9 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-tilt": "^0.1.4"
+    "react-tilt": "^0.1.4",
+    "styled-components": "^5.3.3",
+    "styled-theming": "^2.2.0"
   },
   "scripts": {
     "start": " react-scripts start",

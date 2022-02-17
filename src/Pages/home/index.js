@@ -6,6 +6,7 @@ import { app } from '../../COMPONENTS/api';
 import Logo from './logo';
 import ImageLinkForm from './imageLinkForm';
 import FaceRecognition from './faceRecognition';
+import ColorMode from '../../COMPONENTS/colorMode';
 
 
 class Home extends Component {
@@ -15,7 +16,7 @@ class Home extends Component {
       input: '',
       imageUrl: '',
       box: [],
-      isLoggedIn: !false
+      isLoggedIn: false
     }  
   }
 
@@ -69,16 +70,17 @@ class Home extends Component {
     const {isLoggedIn,imageUrl, box} = this.state
     return (
       <div className="App">
-      <Navigation isLoggedIn={isLoggedIn}/>
-      <Logo/>
-      <Rank/>
-      <ImageLinkForm 
-      onButtonSubmit = {this.onButtonSubmit}
-      onInputChange = {this.onInputChange}/> 
-      <FaceRecognition
-        imageUrl = {imageUrl}
-        box = {box}
-      /> 
+      {/* <Navigation isLoggedIn={isLoggedIn}/> */}
+        <ColorMode/>
+        <Logo/>
+        <Rank/>
+        <ImageLinkForm 
+        onButtonSubmit = {this.onButtonSubmit}
+        onInputChange = {this.onInputChange}/> 
+        <FaceRecognition
+          imageUrl = {imageUrl}
+          box = {box}
+        />
       </div>
     ) 
   }  
