@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import { ChakraProvider, Text, CircularProgress, Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { ChakraProvider, CircularProgress, Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 
 const SignUp = ({onRouteChange}) => {
-  const [error, setError] = useState('');
+  //const [error, setError] = useState('');
   const [inputs, setInputs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] =  useState(false);
+  //const [isLoggedIn, setIsLoggedIn] =  useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
 

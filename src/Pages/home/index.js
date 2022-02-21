@@ -7,6 +7,8 @@ import Logo from './logo';
 import ImageLinkForm from './imageLinkForm';
 import FaceRecognition from './faceRecognition';
 import ColorMode from '../../COMPONENTS/colorMode';
+import DetectProgress from './DetectProgress';
+
 
 
 class Home extends Component {
@@ -16,9 +18,11 @@ class Home extends Component {
       input: '',
       imageUrl: '',
       box: [],
-      isLoggedIn: false
+      responseMessage: '',
+      isLoggedIn: false,
     }  
   }
+
 
   calculateFaceLocation = (data, i) => {
     const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
@@ -35,8 +39,18 @@ class Home extends Component {
   
 
 
+   conditionMessages = (result) => {
+     console.log(result.length)
+     if(result.length > 1){
+      return `${result.length} Faces Detected`
+     }else if(result.length = 1){
+      return 'Face Detected'
+     }else{
+        return 'No Face Detected'
+     }
+  }
+
   displayFaceBox = (faceArea) => {
-    //console.log(location)
     this.setState({
       box: [...this.state.box, faceArea]
     });
@@ -49,21 +63,27 @@ class Home extends Component {
   
   onButtonSubmit = (event) => {
     event.preventDefault();
-    const {input} = this.state;
+    const {input,responseMessage} = this.state;
     this.setState({ imageUrl: input});
     //NOTE: here is the code from the Clarifai API documentation
+    this.setState({responseMessage: 'Detecting...'});
     app.models.predict( Clarifai.FACE_DETECT_MODEL, input)
     .then(response => {
-      for(let i = 0; i < response.outputs[0].data.regions.length; i++){
+       const result = response.outputs[0].data.regions;
+      for(let i = 0; i < result.length; i++){
         this.displayFaceBox(this.calculateFaceLocation(response, i))
       }
+  
+      this.setState({responseMessage: this.conditionMessages(result)});
     })
-      .catch(err => console.log(err));
+      .catch(err => {
+        this.setState({responseMessage: 'No face detected'})
+      });
   }
 
 
   render(){
-    const {isLoggedIn,imageUrl, box} = this.state
+    const {isLoggedIn,imageUrl, box, loading,faceDetected} = this.state
     return (
       <div className="App">
       {/* <Navigation isLoggedIn={isLoggedIn}/> */}
@@ -73,6 +93,9 @@ class Home extends Component {
         <ImageLinkForm 
         onButtonSubmit = {this.onButtonSubmit}
         onInputChange = {this.onInputChange}/> 
+        <div className='align_center margin_top_small '>
+          {this.state.responseMessage}
+        </div>
         <FaceRecognition
           imageUrl = {imageUrl}
           box = {box}

@@ -11,7 +11,6 @@ import  './App.scss';
 
 
 const App = () => {
-
   return (
     <GlobalProvider>
       <div className='app'>

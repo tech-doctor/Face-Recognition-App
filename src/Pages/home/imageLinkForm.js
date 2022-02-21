@@ -1,9 +1,16 @@
-import React  from 'react'
-import '../../Styles/ImageLinkForm.scss'
+import React, {useContext}  from 'react';
+import { GlobalContext } from '../../context/GlobalState';
+import '../../Styles/ImageLinkForm.scss';
+import classes from '../../App.module.scss';
 
  const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
-	return (
-		<div className='image_link'>
+  // const {lightMode} = useContext(GlobalContext);
+
+  // const containerClass = lightMode ? classes.container : classes.dark;
+  
+  return (
+		// <div className = {`${containerClass} image_link`}>
+    <div className='image_link'>
 			<p className = " align_center">
 				<span className='info_1'>This Magic Brain will detect faces in your picture,</span>
 				<br/>
@@ -14,7 +21,7 @@ import '../../Styles/ImageLinkForm.scss'
           <div className = 'form_div'>
             <input 
             onChange = {onInputChange}
-            className = 'form_input' type = 'text' required/>
+            className = 'form_input' type = 'search' required/>
             <button 
             type='submit'
             className = 'detect_button'>Detect</button>

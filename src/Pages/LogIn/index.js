@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import '../../Styles/Login.scss';
-import { ChakraProvider, Text, CircularProgress, Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { ChakraProvider,  CircularProgress, Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 //import  {Link}  from 'react-dom';
 
 const LogIn = () => {
-  const [error, setError] = useState('');
+  //const [error, setError] = useState('');
   const [inputs, setInputs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] =  useState(false);
+  //const [isLoggedIn, setIsLoggedIn] =  useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
 

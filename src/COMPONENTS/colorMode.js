@@ -17,7 +17,6 @@ const  ColorMode = () => {
   }
 
 
-  
 
   return (
     <div onClick={onIconClick}        className='color_mode'>
