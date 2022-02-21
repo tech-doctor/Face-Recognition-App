@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { GlobalProvider} from './context/GlobalState';
+
 import LogIn from './Pages/LogIn';
 import SignUp from './Pages/SignUp';
 import Home from './Pages/home';
-import './App.css';
+import  './App.scss';
+
+
 
 
 const App = () => {
+
   return (
-    <div className='app'>
+    <GlobalProvider>
+      <div className='app'>
       <Router>
         <Switch>
           <Route exact path='/' component = {Home}/> 
@@ -16,7 +22,8 @@ const App = () => {
           <Route exact path='/signup' component={SignUp}/>  
         </Switch>
       </Router>
-    </div> 
+      </div>
+    </GlobalProvider>
   );
 }
 

@@ -1,0 +1,26 @@
+.face_div {
+  margin-top: 40px;
+  position: relative;
+}
+
+.face_container {
+  img {
+    width: 500px;
+    height: auto;
+  }
+}
+
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #149df2;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .face_container {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

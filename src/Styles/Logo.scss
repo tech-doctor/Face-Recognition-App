@@ -1,0 +1,33 @@
+.Tilt {
+  /* border: 1px solid black; */
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+  padding: 7px;
+  box-shadow: 2px 2px 5px black;
+  height: 100%;
+  width: 120px;
+
+  .Tilt-inner {
+    img {
+      padding: 5px;
+      width: 100px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Tilt {
+    margin-top: 20px;
+    padding: 5px;
+    height: 100%;
+    width: 60px;
+
+    .Tilt-inner {
+      img {
+        padding: 5px;
+        width: 50px;
+      }
+    }
+  }
+}

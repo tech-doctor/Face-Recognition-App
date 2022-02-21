@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/Navigation.css'
+import '../../Styles/Navigation.scss'
 
 
 const Navigation = ({isLoggedIn}) => {

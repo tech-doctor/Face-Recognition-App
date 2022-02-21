@@ -20,10 +20,6 @@ class Home extends Component {
     }  
   }
 
-
-
-
-
   calculateFaceLocation = (data, i) => {
     const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
     const image  = document.getElementById('inputimage'); 

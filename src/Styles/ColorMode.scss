@@ -1,0 +1,27 @@
+.color_mode {
+  cursor: pointer;
+  position: absolute;
+  right: 150px;
+  top: 70px;
+}
+
+@media (max-width: 1200px) {
+  .color_mode {
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+  }
+}
+
+@media (max-width: 850px) {
+  .color_mode_tag {
+    display: none;
+  }
+  .color_mode {
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+  }
+}

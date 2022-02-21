@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../Styles/Login.css';
+import '../../Styles/Login.scss';
 import { ChakraProvider, Text, CircularProgress, Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 //import  {Link}  from 'react-dom';
