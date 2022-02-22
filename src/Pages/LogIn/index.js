@@ -8,7 +8,7 @@ const LogIn = () => {
   //const [error, setError] = useState('');
   const [inputs, setInputs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  //const [isLoggedIn, setIsLoggedIn] =  useState(false);
+  const [isLoggedIn, setIsLoggedIn] =  useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
 
