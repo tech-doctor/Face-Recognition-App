@@ -54,7 +54,7 @@ class Home extends Component {
           <p>Face Detected <CheckIcon/></p>
         </div>)
      }else{
-        return <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected </p></div>
+        return <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected, Try again!</p></div>
      }
   }
 
@@ -93,7 +93,7 @@ class Home extends Component {
       this.setState({responseMessage: this.conditionMessages(result)});
     })
       .catch(err => {
-        this.setState({responseMessage: <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected </p></div>})
+        this.setState({responseMessage: <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected.</p></div>})
       });
   }
 

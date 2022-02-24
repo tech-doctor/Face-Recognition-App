@@ -1,10 +1,17 @@
 import React, {createContext, useReducer} from 'react';
+import storage from 'local-storage-fallback';
 import AppReducer from './AppReducer';
 
 
+const getInitialTheme = () => {
+    //check if there is a theme in local storage
+    const savedTheme = storage.getItem('theme');
+    return savedTheme ? JSON.parse(savedTheme).lightMode : {lightMode: true};
+  }
+
 //initial state
 const initialState = {
-    lightMode: true,
+    lightMode: getInitialTheme(),
 }
 
 
@@ -33,3 +40,4 @@ export const GlobalProvider = ({ children }) => {
    </GlobalContext.Provider>)
     
 }
+
