@@ -1,5 +1,7 @@
 import React, {Component } from 'react';
 import Clarifai from 'clarifai';
+import { TransverseLoading } from 'react-loadingg';
+import { CheckIcon, InfoOutlineIcon } from '@chakra-ui/icons';
 import Navigation from '../../COMPONENTS/Navigation';
 import Rank from '../../COMPONENTS/Rank';
 import { app } from '../../COMPONENTS/api';
@@ -7,7 +9,6 @@ import Logo from './logo';
 import ImageLinkForm from './imageLinkForm';
 import FaceRecognition from './faceRecognition';
 import ColorMode from '../../COMPONENTS/colorMode';
-import DetectProgress from './DetectProgress';
 
 
 
@@ -18,7 +19,7 @@ class Home extends Component {
       input: '',
       imageUrl: '',
       box: [],
-      responseMessage: '',
+      responseMessage:  '',
       isLoggedIn: false,
     }  
   }
@@ -42,12 +43,27 @@ class Home extends Component {
    conditionMessages = (result) => {
      console.log(result.length)
      if(result.length > 1){
-      return `${result.length} Faces Detected`
+      return(
+       <div className='font_600'>
+         <p>{result.length} Faces Detected <CheckIcon/>
+         </p> 
+        </div>)
      }else if(result.length = 1){
-      return 'Face Detected'
+      return(
+        <div>
+          <p>Face Detected <CheckIcon/></p>
+        </div>)
      }else{
-        return 'No Face Detected'
+        return <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected </p></div>
      }
+  }
+
+  detecting = () => {
+    return(
+      <div className='Detecting'>
+       <span><TransverseLoading speed = {1} color = 'rgb(155, 255, 155)' /></span>
+      </div>
+    )
   }
 
   displayFaceBox = (faceArea) => {
@@ -66,7 +82,7 @@ class Home extends Component {
     const {input,responseMessage} = this.state;
     this.setState({ imageUrl: input});
     //NOTE: here is the code from the Clarifai API documentation
-    this.setState({responseMessage: 'Detecting...'});
+    this.setState({responseMessage: this.detecting()});
     app.models.predict( Clarifai.FACE_DETECT_MODEL, input)
     .then(response => {
        const result = response.outputs[0].data.regions;
@@ -77,7 +93,7 @@ class Home extends Component {
       this.setState({responseMessage: this.conditionMessages(result)});
     })
       .catch(err => {
-        this.setState({responseMessage: 'No face detected'})
+        this.setState({responseMessage: <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected </p></div>})
       });
   }
 
@@ -93,7 +109,7 @@ class Home extends Component {
         <ImageLinkForm 
         onButtonSubmit = {this.onButtonSubmit}
         onInputChange = {this.onInputChange}/> 
-        <div className='align_center margin_top_small '>
+        <div className='align_center margin_top_small'>
           {this.state.responseMessage}
         </div>
         <FaceRecognition

@@ -1,6 +1,6 @@
 .image_link {
   // border: 1px solid black;
-  margin-top: 20px;
+  margin-top: 40px;
   .form {
     border-radius: 2px;
     margin: auto;
@@ -40,6 +40,10 @@
     }
 
     .detect_button {
+      background-color: rgb(155, 255, 155);
+      //color: white;
+      font-weight: 700;
+      border-radius: 2px;
       width: 20%;
       margin-left: 10px;
       padding: 0.2em;
@@ -47,18 +51,25 @@
       &:active {
         transform: scale(1.1);
       }
+      &:hover {
+        background-color: rgb(169, 255, 169);
+      }
     }
   }
 }
 
 .info_1 {
   font-weight: 700;
-  color: #444;
+  //color: #444;
 }
 
 .info_2 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 16px;
+}
+
+.Dark_info_2 {
+  color: rgb(209, 209, 209);
 }
 
 @media (max-width: 800px) {

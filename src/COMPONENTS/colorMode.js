@@ -6,7 +6,6 @@ import '../Styles/ColorMode.scss'
 
 const  ColorMode = () => {
   const { lightMode, toggleTheme } = useContext(GlobalContext);
-  //const { toggleTheme } = useContext(GlobalContext);
 
   const onIconClick = () => {
     toggleTheme();

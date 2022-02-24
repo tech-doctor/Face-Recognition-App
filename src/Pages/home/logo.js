@@ -1,13 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Tilt from 'react-tilt'
-//import brain from '../Assets/brain.png';
+import { GlobalContext } from '../../context/GlobalState'
 import '../../Styles/Logo.scss'
 
 
 const  Logo = () =>  {
+  const { lightMode } = useContext(GlobalContext);
+  const logoClass = lightMode ? 'Tilt' : ' Tilt Dark_Tilt ';
+
   return (
     <div className = "tilt_div">
-      <Tilt className="Tilt" options={{ max : 55 }} >
+      <Tilt className= {logoClass} options={{ max : 55 }} >
         <div className="Tilt-inner"><img  alt = "logo" src='../Assets/brain.png'/></div>
       </Tilt>
     </div>
