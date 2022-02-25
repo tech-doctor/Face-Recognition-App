@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, {useContext } from 'react';
 import { SunIcon, MoonIcon  } from '@chakra-ui/icons';
 import { GlobalContext } from '../context/GlobalState';
 import '../Styles/ColorMode.scss'

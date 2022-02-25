@@ -2,7 +2,7 @@ import React, {Component } from 'react';
 import Clarifai from 'clarifai';
 import { TransverseLoading } from 'react-loadingg';
 import { CheckIcon, InfoOutlineIcon } from '@chakra-ui/icons';
-import Navigation from '../../COMPONENTS/Navigation';
+//import Navigation from '../../COMPONENTS/Navigation';
 import Rank from '../../COMPONENTS/Rank';
 import { app } from '../../COMPONENTS/api';
 import Logo from './logo';
@@ -41,20 +41,21 @@ class Home extends Component {
 
 
    conditionMessages = (result) => {
-     console.log(result.length)
      if(result.length > 1){
       return(
        <div className='font_600'>
          <p>{result.length} Faces Detected <CheckIcon/>
          </p> 
         </div>)
-     }else if(result.length = 1){
+     }
+     else if(result.length === 1){
       return(
         <div>
           <p>Face Detected <CheckIcon/></p>
-        </div>)
-     }else{
-        return <div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected, Try again!</p></div>
+        </div>)}
+
+        else{
+        return (<div><p style = {{color: 'red'}}> <InfoOutlineIcon color = 'red'/> No Face Detected, Try again!</p></div>)
      }
   }
 
@@ -79,12 +80,12 @@ class Home extends Component {
   
   onButtonSubmit = (event) => {
     event.preventDefault();
-    const {input,responseMessage} = this.state;
+    const {input} = this.state;
     this.setState({ imageUrl: input});
     //NOTE: here is the code from the Clarifai API documentation
     this.setState({responseMessage: this.detecting()});
     app.models.predict( Clarifai.FACE_DETECT_MODEL, input)
-    .then(response => {
+    .then((response) => {
        const result = response.outputs[0].data.regions;
       for(let i = 0; i < result.length; i++){
         this.displayFaceBox(this.calculateFaceLocation(response, i))
@@ -99,7 +100,7 @@ class Home extends Component {
 
 
   render(){
-    const {isLoggedIn,imageUrl, box, loading,faceDetected} = this.state
+    const {imageUrl, box, responseMessage} = this.state
     return (
       <div className="App">
       {/* <Navigation isLoggedIn={isLoggedIn}/> */}
@@ -110,7 +111,7 @@ class Home extends Component {
         onButtonSubmit = {this.onButtonSubmit}
         onInputChange = {this.onInputChange}/> 
         <div className='align_center margin_top_small'>
-          {this.state.responseMessage}
+          {responseMessage}
         </div>
         <FaceRecognition
           imageUrl = {imageUrl}

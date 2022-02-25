@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import { ChakraProvider, CircularProgress, Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { ChakraProvider,  Flex, Box, Heading, FormControl, FormLabel, Input,  Button, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 
 const SignUp = ({onRouteChange}) => {
   //const [error, setError] = useState('');
   const [inputs, setInputs] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  //const [isLoading, setIsLoading] = useState(false);
   //const [isLoggedIn, setIsLoggedIn] =  useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -73,9 +73,9 @@ const SignUp = ({onRouteChange}) => {
                       </InputGroup>
                     </FormControl>
                     <Button  color={'white'} background = {'grey'} _hover={{ background: "grey", color: "white",}}   width="full" mt={4} type="submit">
-                      {isLoading ? 
+                      {/* {isLoading ? 
                       <CircularProgress isIndeterminate size="24px" color="teal" />
-                      : 'Sign up'}
+                      : 'Sign up'} */}
                     </Button>
                   </form>
                 </Box>

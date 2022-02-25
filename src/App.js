@@ -23,7 +23,7 @@ const App = () => {
    
    useEffect(() => {
     storage.setItem('theme', JSON.stringify(state));
-   },[lightMode]);
+   },[lightMode, state]);
 
   const containerClass = lightMode ? classes.container : classes.dark;
   return (
