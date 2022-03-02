@@ -25,6 +25,8 @@ const App = () => {
     storage.setItem('theme', JSON.stringify(state));
    },[lightMode, state]);
 
+   
+
   const containerClass = lightMode ? classes.container : classes.dark;
   return (
       <div className = {`${containerClass} app`}>
