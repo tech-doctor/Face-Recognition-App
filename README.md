@@ -32,8 +32,8 @@
 ![Display](https://res.cloudinary.com/rririsrisurisux/image/upload/v1646260790/ezgif.com-gif-maker_3_kjswso.gif)
 
 
-###Live Demo
- Click [here](https://magic-mind.netlify.app/)
+### Live Demo
+  * Click [here](https://magic-mind.netlify.app/)
 
 
 ### Setup:
